@@ -2,6 +2,8 @@ package com.mycompany.propertymanagement.controller;
 
 
 import com.mycompany.propertymanagement.dto.CalculatorDto;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -27,10 +29,11 @@ public class CalculatorController {
     }
 
     @PostMapping("/multiply") // map the values of the url to java variables by path variable method
-    public Double multiply(@RequestBody CalculatorDto calculatorDto) {
+    public ResponseEntity<Double> multiply(@RequestBody CalculatorDto calculatorDto) {
         Double result = null;
         result = calculatorDto.getNum1() * calculatorDto.getNum2() * calculatorDto.getNum3() * calculatorDto.getNum4();
-        return result;
+        ResponseEntity<Double> responseEntity = new ResponseEntity<Double>(result, HttpStatus.CREATED);
+        return responseEntity;
     }
 
 }

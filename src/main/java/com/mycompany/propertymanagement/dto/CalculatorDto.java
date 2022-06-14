@@ -1,12 +1,15 @@
 package com.mycompany.propertymanagement.dto;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class CalculatorDto {
 
     private Double num1;
     private Double num2;
     private Double num3;
-
+    @JsonProperty("num4") // you can give the other name to the json property but it will still utilize it
+    private  Double num4;
     public Double getNum1() {
         return num1;
     }
@@ -39,5 +42,5 @@ public class CalculatorDto {
         this.num4 = num4;
     }
 
-    private  Double num4;
+
 }
